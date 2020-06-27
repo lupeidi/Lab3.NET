@@ -1,0 +1,70 @@
+<h2 class="text-center">List of movies</h2>
+<br>
+
+
+<!--<h4>Filter by date added</h4>
+<br>
+<form #form="ngForm" autocomplete="on" (submit)="onSubmit(form)">
+    <p>From date:</p>
+    <input name="from" [(ngModel)]="from">
+    <br>
+    <p>To date:</p>
+    <input name="to" [(ngModel)]="to">
+    <br>
+    <button type="submit">Filter</button>
+    <br>
+</form>
+<br>
+<br>
+<button (click)="refreshList()">Refresh</button>
+<br>-->
+
+
+    <table class="table table-hover">
+
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Genre</th>
+                <th>Duration</th>
+                <th>Year of release</th>
+                <th>Director</th>
+                <th>Date added</th>
+                <th>Rating</th>
+                <th>Watched</th>
+                <th>Number of comments</th>
+                <th>Operations</th>
+
+            </tr>
+        </thead>
+
+
+        <tr *ngFor="let m of movies">
+
+            <td>{{m.Id}}</td>
+            <td>{{m.Title}}</td>
+            <td>{{m.Description}}</td>
+            <td>{{m.Genre}}</td>
+            <td>{{m.Duration}}</td>
+            <td>{{m.YearOfRelease}}</td>
+            <td>{{m.Director}}</td>
+            <td>{{m.DateAdded | date: 'yyyy-MM-dd'}}</td>  <!-- pipe format date-->
+            <td>{{m.Rating}}</td>
+            <td>{{m.Watched}}</td>
+            <td>{{m.NumberOfComments}}</td>  
+            <td>
+                <a [routerLink]="['/fetch-data', m.Id]" routerLinkActive="active"> Details</a>
+                <a [routerLink]="['/update', m.Id]" routerLinkActive="active" (click)="populateForm(m)"> Update</a>
+                <a [routerLink]="['/delete', m.Id]" routerLinkActive="active" (click)="onDelete(m.Id)"> Delete</a>
+            </td>  <!-- transmit id prin router link -->
+
+        </tr>
+
+    </table>
+
+
+
+
+

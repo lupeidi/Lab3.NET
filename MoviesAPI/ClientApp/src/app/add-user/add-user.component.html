@@ -1,0 +1,33 @@
+<h2 class="text-center">Add user</h2>
+<br>
+
+
+<form [formGroup]="userReactiveForm" [hidden]="success" autocomplete="on" (ngSubmit)="onSubmit(userReactiveForm)">
+
+    <input type="hidden" name="Id" [value]="service.formDataMovie.Id">
+
+    <div class="form-group">
+        <div class="input-group">
+            <input formControlName="FirstName" type="text" class="form-control" placeholder="FirstName" required maxlength="50" minlength="3">
+        </div> <br>
+        <div class="input-group">
+            <input formControlName="LastName" type="text" class="form-control" placeholder="LastName" required maxlength="50" minlength="3">
+        </div> <br>
+        <div class="input-group">
+            <input formControlName="Username" type="text" class="form-control" placeholder="Username" required maxlength="50" minlength="3">
+        </div> <br>
+        <div class="input-group">
+            <input formControlName="Password" type="text" class="form-control" placeholder="Password" required maxlength="50" minlength="3">
+        </div> <br>
+
+
+        <button class="btn btn-success btn-lg btn-block" type="submit">
+            Submit
+        </button>
+        <button class="btn btn-danger btn-lg btn-block" (click)="userReactiveForm.reset()">Reset</button>
+    </div>
+
+
+</form>
+
+
